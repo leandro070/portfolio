@@ -1,0 +1,158 @@
+<section>
+  <h2
+    id="phrase"
+    class="font-display m-auto text-primary text-3xl md:text-5xl pt-7 md:ml-[15%] text-center md:inline-block w-[327px] md:w-[524px]"
+  >
+    De la curiosidad por entender al desafío de crear transformando ideas en
+    soluciones
+    <div class="purple-gradient md:w-[100%] h-3 md:h-4 mt-2"></div>
+  </h2>
+
+  <div class="light-blue-gradient w-[65%] h-4 md:h-7 mt-5 md:mt-8"></div>
+
+  <div
+    class="gray-gradient hidden md:block md:absolute md:top-[188px] md:right-0 md:w-[321px] md:h-4 -z-10"
+  >
+  </div>
+
+  <h1
+    id="hero-title"
+    class="light-blue-shadow font-display text-primary text-7xl md:text-9xl text-center mt-20"
+  >
+    Software <br /> Development
+  </h1>
+</section>
+
+<script>
+  import gsap from "gsap";
+
+  const tl = gsap.timeline({
+    delay: 3,
+  });
+  tl.fromTo(
+    "#phrase",
+    {
+      opacity: 0,
+    },
+    {
+      ease: "sine.inOut",
+      opacity: 1,
+      duration: 2,
+    }
+  );
+  const $purpleGradient = document.querySelector(".purple-gradient");
+  if ($purpleGradient) {
+    const purpleGradientDimensions = $purpleGradient.getBoundingClientRect();
+    tl.fromTo(
+      ".purple-gradient",
+      {
+        x: -purpleGradientDimensions.width,
+        opacity: 0,
+      },
+      {
+        duration: 1.5,
+        ease: "power1.out",
+        x: 0,
+        opacity: 1,
+      },
+      "<+0.5"
+    );
+  }
+
+  const $lightBlueGradient = document.querySelector(".light-blue-gradient");
+  if ($lightBlueGradient) {
+    const lightBlueGradientDimensions =
+      $lightBlueGradient.getBoundingClientRect();
+    tl.fromTo(
+      ".light-blue-gradient",
+      {
+        x: -lightBlueGradientDimensions.width,
+        opacity: 0,
+      },
+      {
+        duration: 2.8,
+        ease: "power1.out",
+        x: 0,
+        opacity: 1,
+      },
+      "<+0.5"
+    );
+  }
+
+  const $grayGradient = document.querySelector(".gray-gradient");
+  if ($grayGradient) {
+    const grayGradientDimensions = $grayGradient.getBoundingClientRect();
+    tl.fromTo(
+      ".gray-gradient",
+      {
+        x: grayGradientDimensions.width,
+        opacity: 0,
+      },
+      {
+        duration: 2.8,
+        ease: "power1.out",
+        x: 0,
+        opacity: 1,
+      },
+      "<+0.5"
+    );
+  }
+
+  const $heroTitle = document.querySelector("#hero-title");
+  if ($heroTitle) {
+    const heroTitleDimensions = $heroTitle.getBoundingClientRect();
+    tl.fromTo(
+      "#hero-title",
+      {
+        y: heroTitleDimensions.height,
+        opacity: 0,
+      },
+      {
+        duration: 2.8,
+        ease: "power1.out",
+        y: 0,
+        opacity: 1,
+      },
+      "<+0.5"
+    );
+  }
+</script>
+
+<style>
+  .purple-gradient {
+    background: linear-gradient(
+      90deg,
+      rgba(var(--rgb-color-black), 0) 0%,
+      rgba(var(--rgb-color-purple), 0.7973390039609594) 20%,
+      rgba(var(--rgb-color-purple), 1) 29%,
+      rgba(var(--rgb-color-purple), 0.8001401244091386) 46%,
+      rgba(var(--rgb-color-purple), 1) 71%,
+      rgba(var(--rgb-color-purple), 1) 80%,
+      rgba(var(--rgb-color-black), 0) 100%
+    );
+  }
+
+  .light-blue-gradient {
+    background: rgb(var(--rgb-color-white));
+    background: linear-gradient(
+      90deg,
+      rgba(var(--rgb-color-white), 1) 0%,
+      rgba(var(--rgb-color-light-blue), 1) 35%,
+      rgba(var(--rgb-color-light-blue), 1) 81%,
+      rgba(var(--rgb-color-black), 0) 100%
+    );
+  }
+
+  .gray-gradient {
+    background: rgb(251, 249, 249);
+    background: linear-gradient(
+      90deg,
+      rgba(var(--rgb-color-black), 0) 0%,
+      rgba(var(--rgb-color-grey), 1) 43%
+    );
+  }
+
+  .light-blue-shadow {
+    text-shadow: 5px 8px 3px rgba(var(--rgb-color-light-blue), 0.6);
+  }
+</style>
