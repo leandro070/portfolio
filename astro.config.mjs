@@ -8,6 +8,7 @@ export default defineConfig({
   site: 'https://leandro070.github.io',
   integrations: [tailwind()],
   build: {
-    assetsPrefix: '.'
+    assets: 'assets',
+    assetsPrefix: '/'
   }
 });
