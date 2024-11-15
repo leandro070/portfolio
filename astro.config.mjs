@@ -7,8 +7,5 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://leandro070.github.io',
   integrations: [tailwind()],
-  build: {
-    assets: 'assets',
-    assetsPrefix: '/'
-  }
+  base: 'portfolio',
 });
