@@ -22,6 +22,10 @@
     Software <br /> Development
   </h1>
 </section>
+<div class="scene">
+  <div class="blur-blue-circle"></div>
+  <div class="blur-purple-circle"></div>
+</div>
 
 <script>
   import gsap from "gsap";
@@ -116,9 +120,82 @@
       "<+0.5"
     );
   }
+
+  function randomInRange(min: number, max: number) {
+    return Math.random() * (max - min) + min;
+  }
+
+  const $purpleCircle = document.querySelector(".blur-purple-circle");
+  gsap.to($purpleCircle, {
+    x: () => randomInRange(-80, 80),
+    y: () => randomInRange(-80, 80),
+    opacity: () => randomInRange(0.4, 1),
+    scale: () => randomInRange(0.7, 1),
+    duration: 5,
+    ease: "power1.inOut",
+    repeat: -1,
+    onRepeat: function () {
+      this.vars.x = randomInRange(-30, 30);
+      this.vars.y = randomInRange(-30, 30);
+    },
+    yoyo: true,
+  });
+
+  const $blueCircle = document.querySelector(".blur-blue-circle");
+  gsap.to($blueCircle, {
+    x: () => randomInRange(-20, 20),
+    y: () => randomInRange(-20, 20),
+    opacity: () => randomInRange(0.8, 1),
+    scale: () => randomInRange(0.9, 1),
+    delay: 1,
+    duration: 4,
+    ease: "power1.inOut",
+    repeat: -1,
+    onRepeat: function () {
+      this.vars.x = randomInRange(-20, 20);
+      this.vars.y = randomInRange(-20, 20);
+    },
+    yoyo: true,
+  });
 </script>
 
 <style>
+  .scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .blur-purple-circle {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Hace el contenedor circular */
+    background-color: rgba(
+      var(--rgb-color-purple),
+      0.99
+    ); /* Color del círculo, ajusta el alfa para más transparencia */
+    box-shadow: 0 0 20px 20px rgba(var(--rgb-color-purple), 0.5); /* Efecto difuminado */
+    filter: blur(20px); /* Ajusta el nivel de desenfoque */
+    top: 60vh;
+    left: 60vw;
+  }
+
+  .blur-blue-circle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Hace el contenedor circular */
+    background-color: rgba(
+      var(--rgb-color-light-blue),
+      0.95
+    ); /* Color del círculo, ajusta el alfa para más transparencia */
+    box-shadow: 0 0 15px 15px rgba(var(--rgb-color-light-blue), 0.5); /* Efecto difuminado */
+    filter: blur(10px); /* Ajusta el nivel de desenfoque */
+    top: 20vh;
+    left: 50vw;
+  }
+
   .purple-gradient {
     background: linear-gradient(
       90deg,
